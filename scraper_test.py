@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import traceback
 import sys
+import os
 
 print("Starting scraper...", file=sys.stderr)
 
@@ -15,7 +16,7 @@ try:
     
     graph_config = {
         "llm": {
-            "api_key": "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",
+            "api_key": os.getenv("OPENAI_API_KEY"),
             "model": "openai/gpt-4o-mini",
         },
         "headless": True,
