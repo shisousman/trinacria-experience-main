@@ -10,6 +10,6 @@ export default defineConfig({
     react(),
   ],
   build: {
-    outDir: "dist", // 🌟 Explicitly outputs to the directory Vercel is looking for
+    outDir: "dist",
   }
 });
