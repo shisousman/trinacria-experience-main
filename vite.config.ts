@@ -1,10 +1,10 @@
 import { defineConfig } from "vite";
-import { tanstackViteStart } from "@tanstack/start/vite";
+import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
   plugins: [
     tsconfigPaths(),
-    tanstackViteStart(),
+    react(), // 🌟 Uses standard static react building instead of server start
   ],
 });
