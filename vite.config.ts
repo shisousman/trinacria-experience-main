@@ -1,10 +1,14 @@
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
+import { tanstackViteStart } from "@tanstack/start/vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
   plugins: [
     tsconfigPaths(),
-    react(), // 🌟 Uses standard static react building instead of server start
+    tanstackViteStart({
+      deployment: {
+        target: "vercel-serverless" // 🌟 Forces TanStack to output Vercel native functions instead of workerd binaries
+      }
+    }),
   ],
 });
