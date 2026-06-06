@@ -1,12 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap");
-@import "tailwindcss" source(none);
-@source "../src";
+@import "tailwindcss";
 @import "tw-animate-css";
 @import "leaflet/dist/leaflet.css";
-.font-instrument { font-family: "Instrument Serif", "Cormorant Garamond", serif; letter-spacing: -0.01em; }
 
-@custom-variant dark (&:is(.dark *));
-
+.font-instrument {
+  font-family: "Instrument Serif", "Cormorant Garamond", serif;
+}
 /*
  * Design system definition.
  *
