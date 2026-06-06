@@ -2,7 +2,6 @@ import { Globe, User, Instagram, Facebook, MessageCircle, ChevronDown, type Luci
 import { useEffect, useRef, useState } from "react";
 import { useUIState } from "@/lib/uiState";
 import { LANGUAGES, setLang, useLang, useT, type Lang } from "@/lib/lang";
-import { LoginModal } from "./Login/LoginModal";
 
 type Platform = { name: string; href: string; Icon: LucideIcon };
 
@@ -23,7 +22,6 @@ export function SocialShare({
   onLoginClick?: () => void;
 } = {}) {
   const [open, setOpen] = useState(false);
-  const [isLoginOpen, setIsLoginOpen] = useState(false);
   const { sidebarOpen } = useUIState();
   const lang = useLang();
   const t = useT();
@@ -119,7 +117,6 @@ export function SocialShare({
         <button
           type="button"
           onClick={() => {
-            setIsLoginOpen(true);
             setOpen(false);
             onLoginClick?.();
           }}
@@ -157,22 +154,6 @@ export function SocialShare({
           ))}
         </div>
       </div>
-
-      {/* Login Modal */}
-      <LoginModal
-        isOpen={isLoginOpen}
-        onClose={() => setIsLoginOpen(false)}
-        onCreateAccount={() => {
-          setIsLoginOpen(false);
-          // TODO: Navigate to sign-up or open create account flow
-          console.log("Create account clicked");
-        }}
-        onForgotPassword={() => {
-          setIsLoginOpen(false);
-          // TODO: Navigate to password reset or open reset flow
-          console.log("Forgot password clicked");
-        }}
-      />
     </div>
   );
 }
